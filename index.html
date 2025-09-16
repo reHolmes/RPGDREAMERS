@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG DREAMERS</title>
+  <link rel="stylesheet" href="modules/style.css">
+</head>
+<body>
+  <header>
+    <h1>RPG DREAMERS</h1>
+    <nav>
+      <ul>
+        <li><a href="#welcomegame">ウェルカムゲーム</a></li>
+        <li><a href="#games">ゲーム一覧</a></li>
+        <!-- 
+        <li><a href="#upload">アップロード</a></li>
+        <li><a href="#register">ユーザー登録</a></li>
+        <li><a href="#login">ログイン</a></li>
+        -->
+      </ul>
+    </nav>
+
+    <!-- 外部カウンター表示エリア -->
+<div class="visitor-counter">
+    <?php include __DIR__ . '/modules/counter.php'; ?>
+</div>
+  </header>
+  
+
+  <main>
+    <!-- ウェルカムゲーム -->
+    <section id="welcomegame" class="section">
+      <h2>ウェルカムゲーム</h2>
+      <iframe src="welcomeGame/survival3D/index.html"
+        width="1600" height="900"
+        sandbox="allow-scripts">
+      </iframe>
+
+
+      <!-- <iframe src="welcomeGame/survival3D/index.html" width="1600" height="900"></iframe> -->
+    </section>
+
+    <!-- ゲーム一覧 -->
+    <section id="games" class="section">
+      <h2>ゲーム一覧</h2>
+      <ul id="game-list"></ul>
+
+      <script>
+      // PHPからゲーム一覧を取得して表示
+      fetch('modules/list.php')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('game-list').innerHTML = html;
+        })
+        .catch(err => {
+            document.getElementById('game-list').innerHTML = "<li>ゲーム一覧の読み込みに失敗しました。</li>";
+            console.error(err);
+        });
+      </script>
+      
+      <!-- データベース連携用 -->
+      <!-- <ul id="fileList"></ul>
+
+      <script>
+        // アップロード済みファイルの一覧を表示
+        fetch('list_files.php')
+          .then(response => response.json())
+          .then(data => {
+            const fileList = document.getElementById('fileList');
+            data.forEach(file => {
+              const listItem = document.createElement('li');
+              listItem.textContent = `${file.filename} - ${file.upload_date}`;
+              fileList.appendChild(listItem);
+            });
+          })
+          .catch(err => console.error('エラー:', err));
+      </script>
+
+      <script>
+        fetch('list_files.php')
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById("folderList");
+                data.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.foldername}（${item.upload_date}）`;
+                    list.appendChild(li);
+                });
+            });
+      </script> -->
+    </section>
+
+    <!-- ゲームをアップロード -->
+    <!-- <section id="upload" class="section">
+      <h2>ゲームをアップロード</h2>
+      <form action="modules/upload.php" method="POST" enctype="multipart/form-data">
+        <label for="gameFiles">フォルダを選択:</label>
+        <input type="file" name="gameFiles[]" id="gameFiles" webkitdirectory multiple required>
+        <br><br>
+        <button type="submit">アップロード</button>
+      </form>
+    </section> -->
+
+    <!-- ユーザー登録 -->
+    <!-- <section id="register" class="section">
+      <h2>ユーザー登録</h2>
+      <form id="registerForm" method="POST" action="modules/register.php">
+        <label for="username">ユーザー名</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">パスワード</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">登録</button>
+      </form>
+      <p id="errorMsg" class="error-message"></p>
+    </section>
+
+    <script src="modules/register.js"></script> -->
+
+    <!-- ログイン -->
+     <!-- <section id="login" class="section">
+      <h2>ログイン</h2>
+      <form id="loginForm" method="POST" action="modules/login.php">
+        <label for="username">ユーザー名</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">パスワード</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">ログイン</button>
+      </form>
+      <p id="errorMsg" class="error-message"></p>
+      <script src="modules/login.js"></script>
+     </section> -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RPG DREAMERS</p>
+  </footer>
+</body>
+</html>
