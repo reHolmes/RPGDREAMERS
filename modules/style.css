@@ -1,0 +1,162 @@
+/* 全体のスタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  background-color: #1d1b3c;
+  color: #fff;
+}
+
+/* ヘッダー */
+header {
+  background-color: #3e2f5b;
+  padding: 20px;
+  /* text-align: center; */
+  box-shadow: 0 4px 2px -2px gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* モバイル対応 */
+}
+
+/* カウンターをヘッダー右端に
+.external-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.9rem;
+  color: #ffd700;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.external-counter p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.external-counter img {
+  height: 18px;
+  vertical-align: middle;
+  display: inline-block;
+} */
+
+.visitor-counter {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 6px 10px;
+    border-radius: 4px;
+}
+
+.user-greeting {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2em;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 2px 2px #000;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* セクション */
+.section {
+  padding: 40px;
+  text-align: center;
+}
+
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* ゲームリスト */
+.game-list {
+  display: grid;
+  justify-content: space-around;
+}
+
+.game-item {
+  background-color: #2e2b50;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* アップロードフォーム */
+form {
+  background-color: #2e2b50;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+form label {
+  color: #fff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input[type="file"] {
+  color: #fff;
+}
+
+form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #5d4b86;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #7b5aa8;
+}
+
+/* フッター */
+footer {
+  background-color: #3e2f5b;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+footer p {
+  margin: 0;
+  color: #e0bbff;
+}
